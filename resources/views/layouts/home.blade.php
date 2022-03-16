@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
@@ -165,8 +166,10 @@
                             <a href="#" class="link-direction">
                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                 <div class="left-info">
-                                    <span class="index">4 items</span>
-                                    <span class="title">CART</span>
+                                    @if (Cart::count() > 0)
+                                        <span class="index">{{Cart::count()}} items</span>
+                                        <span class="title">CART</span>
+                                    @endif
                                 </div>
                             </a>
                         </div>

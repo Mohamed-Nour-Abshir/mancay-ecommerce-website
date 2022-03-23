@@ -4,8 +4,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span>Contact us</span></li>
+                <li class="item-link"><a href="/" class="link">home</a></li>
+                <li class="item-link"><span>About us</span></li>
             </ul>
         </div>
     </div>
@@ -112,77 +112,64 @@
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="#" title="LEONA">
-                                    <figure><img src="assets/images/member-leona.jpg" alt="LEONA"></figure>
+                                <a href="#" title="NOUR">
+                                    <figure><img src="{{asset('assets/images/team/owner2.jpg')}}" alt="Nour"></figure>
                                 </a>
                             </div>
                             <div class="info">
-                                <b class="name">leona</b>
-                                <span class="title">Director</span>
+                                <b class="name">Nour</b>
+                                <span class="title">Back-end developer</span>
                                 <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                             </div>
                         </div>
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="#" title="LUCIA">
-                                    <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
+                                <a href="#" title="FITAH">
+                                    <figure><img src="{{asset('assets/images/team/fitah.jpg')}}" alt="fitah"></figure>
                                 </a>
                             </div>
                             <div class="info">
-                                <b class="name">LUCIA</b>
-                                <span class="title">Manager</span>
+                                <b class="name">Fitah</b>
+                                <span class="title">Back-end developer</span>
                                 <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                             </div>
                         </div>
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="#" title="NANA">
-                                    <figure><img src="assets/images/member-nana.jpg" alt="NANA"></figure>
+                                <a href="#" title="Abdulla">
+                                    <figure><img src="{{asset('assets/images/team/abdulla.jpg')}}" alt="abdulla"></figure>
                                 </a>
                             </div>
                             <div class="info">
-                                <b class="name">NANA</b>
-                                <span class="title">Marketer</span>
+                                <b class="name">Abdulla</b>
+                                <span class="title">Front-End developer</span>
                                 <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                             </div>
                         </div>
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="#" title="BRAUM">
-                                    <figure><img src="assets/images/member-braum.jpg" alt="BRAUM"></figure>
+                                <a href="#" title="Zalman">
+                                    <figure><img src="{{asset('assets/images/team/zalman.jpg')}}" alt="Zalman"></figure>
                                 </a>
                             </div>
                             <div class="info">
-                                <b class="name">BRAUM</b>
-                                <span class="title">Member</span>
+                                <b class="name">Zalman</b>
+                                <span class="title">Front-End developer</span>
                                 <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                             </div>
                         </div>
 
                         <div class="team-member equal-elem">
                             <div class="media">
-                                <a href="#" title="LUCIA">
-                                    <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
+                                <a href="#" title="Adesh">
+                                    <figure><img src="{{asset('assets/images/team/adesh.jpg')}}" alt="Adesh"></figure>
                                 </a>
                             </div>
                             <div class="info">
-                                <b class="name">LUCIA</b>
-                                <span class="title">Manager</span>
-                                <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
-                            </div>
-                        </div>
-
-                        <div class="team-member equal-elem">
-                            <div class="media">
-                                <a href="#" title="NANA">
-                                    <figure><img src="assets/images/member-nana.jpg" alt="NANA"></figure>
-                                </a>
-                            </div>
-                            <div class="info">
-                                <b class="name">NANA</b>
+                                <b class="name">Adesh</b>
                                 <span class="title">Marketer</span>
                                 <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
                             </div>

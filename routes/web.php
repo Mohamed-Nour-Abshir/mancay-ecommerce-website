@@ -3,6 +3,9 @@
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\AboutComponent;
 use App\Http\Livewire\Admin\AdminComponent;
+use App\Http\Livewire\Admin\AdminCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddCategoryComponent;
+use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\ContactUsComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\CartComponent;
@@ -41,11 +44,19 @@ Route::get('/search', SearchComponent::class)->name('product.search');
 //     return view('dashboard');
 // })->name('dashboard');
 
-// Admin routes
-Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-   Route::get('/admin/dashboard',AdminComponent::class)->name('admin.dashboard');
-});
+
+
 // User Routes
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/user/dashboard',UserComponent::class)->name('user.dashboard');
+
 });
+
+// Admin routes
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+   Route::get('/admin/dashboard',AdminComponent::class)->name('admin.dashboard');
+   Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
+   Route::get('/admin/category/Add',AdminAddCategoryComponent::class)->name('admin.Add');
+   Route::get('/admin/category/Edit/{category_slug}',AdminEditCategoryComponent::class)->name('admin.Edit');
+});
+

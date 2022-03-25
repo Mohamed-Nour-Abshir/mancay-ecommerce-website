@@ -77,6 +77,9 @@
                                                 <a title="dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
                                             </li>
                                             <li class="menu-item" >
+                                                <a title="Products" href="{{route('admin.products')}}">Products</a>
+                                            </li>
+                                            <li class="menu-item" >
                                                 <a title="categories" href="{{route('admin.categories')}}">Categories</a>
                                             </li>
                                             <li class="menu-item">

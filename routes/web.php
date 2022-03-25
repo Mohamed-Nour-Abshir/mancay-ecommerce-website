@@ -2,10 +2,6 @@
 
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\AboutComponent;
-use App\Http\Livewire\Admin\AdminComponent;
-use App\Http\Livewire\Admin\AdminCategoryComponent;
-use App\Http\Livewire\Admin\AdminAddCategoryComponent;
-use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\ContactUsComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\CartComponent;
@@ -14,8 +10,15 @@ use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\User\UserComponent;
-use Illuminate\Support\Facades\Route;
 
+use App\Http\Livewire\Admin\AdminComponent;
+use App\Http\Livewire\Admin\AdminCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddCategoryComponent;
+use App\Http\Livewire\Admin\AdminEditCategoryComponent;
+use App\Http\Livewire\Admin\AdminProductComponent;
+
+
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,5 +61,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
    Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
    Route::get('/admin/category/Add',AdminAddCategoryComponent::class)->name('admin.Add');
    Route::get('/admin/category/Edit/{category_slug}',AdminEditCategoryComponent::class)->name('admin.Edit');
+   Route::get('/admin/products',AdminProductComponent::class)->name('admin.products');
 });
 

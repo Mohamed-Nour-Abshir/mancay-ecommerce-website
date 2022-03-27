@@ -9,7 +9,7 @@
                                 <p class="pull-left">All Products</p>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{route('admin.Add')}}" class="btn btn-success pull-right">Add Products</a>
+                                <a href="{{route('admin.Addproduct')}}" class="btn btn-success pull-right">Add Products</a>
                             </div>
                         </div>
                     </div>

@@ -63,7 +63,7 @@
                           <div class="form-group">
                             <label class="col-md-4 control-label">Stock</label>
                             <div class="col-md-4">
-                              <select name="" id="" class="form-control">
+                              <select name="" id="" class="form-control" wire:model="instock">
                                   <option value="instock">InStock</option>
                                   <option value="outofstock">out Of Stock</option>
                               </select>
@@ -72,7 +72,7 @@
                           <div class="form-group">
                             <label class="col-md-4 control-label">Featured</label>
                             <div class="col-md-4">
-                              <select name="" id="" class="form-control">
+                              <select name="" id="" class="form-control" wire:model="featured">
                                   <option value="0">No</option>
                                   <option value="1">Yes</option>
                               </select>
@@ -96,7 +96,7 @@
                           <div class="form-group">
                             <label class="col-md-4 control-label">Category</label>
                             <div class="col-md-4">
-                              <select name="" id="" class="form-control">
+                              <select name="" id="" class="form-control" wire:model="category_id">
                                   <option value="">Select Category</option>
                                   @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>

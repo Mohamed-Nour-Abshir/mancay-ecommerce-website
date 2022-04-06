@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\product;
+use App\Models\Sale;
 use Livewire\Component;
 use Cart;
 class DetailsComponent extends Component
@@ -21,6 +22,7 @@ class DetailsComponent extends Component
         $product = product::where('slug',$this->slug)->first();
         $popular_products = product::inRandomOrder()->limit(4)->get();
         $related_products = product::where('category_id',$product->category_id)->inRandomOrder()->limit(5)->get();
-        return view('livewire.details-component',['product'=>$product, 'popular_products'=>$popular_products, 'related_products'=>$related_products])->layout('layouts.home');
+        $sale = Sale::find(1);
+        return view('livewire.details-component',['product'=>$product, 'popular_products'=>$popular_products, 'related_products'=>$related_products,'sale'=>$sale])->layout('layouts.home');
     }
 }

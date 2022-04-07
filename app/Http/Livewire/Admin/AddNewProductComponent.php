@@ -37,9 +37,39 @@ class AddNewProductComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
-    public function addProduct(){
-        $product = new product();
+    public function updated($fields){
+        $this->validateOnly($fields,[
+            'name'=>'required',
+            'slug'=>'required|unique:products',
+            'short_description'=>'required',
+            'description'=>'required',
+            'regular_price'=>'required|numeric',
+            'sale_price'=>'numeric',
+            'SKU'=>'required',
+            'stock_status'=>'required',
+            'quantity'=>'required|numeric',
+            'image'=>'required|mimes:jpg,jpeg,png',
+            'category_id'=>'required'
+        ]);
+    }
 
+    public function addProduct(){
+
+        $this->validate([
+            'name'=>'required',
+            'slug'=>'required|unique:products',
+            'short_description'=>'required',
+            'description'=>'required',
+            'regular_price'=>'required|numeric',
+            'sale_price'=>'numeric',
+            'SKU'=>'required',
+            'stock_status'=>'required',
+            'quantity'=>'required|numeric',
+            'image'=>'required|mimes:jpg,jpeg,png',
+            'category_id'=>'required'
+        ]);
+
+        $product = new product();
         $product->name = $this->name;
         $product->slug = $this->slug;
         $product->short_description = $this->short_description;

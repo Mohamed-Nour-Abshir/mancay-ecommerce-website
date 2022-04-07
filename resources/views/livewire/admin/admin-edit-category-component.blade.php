@@ -20,8 +20,10 @@
                         <form wire:submit.prevent="updateCategory">
                             <label>Category Name</label>
                             <input type="text" class="form-control" placeholder="Category name" wire:model="name" wire:keyup="generateSlug">
+                            @error('name')<span class="text-danger">{{$message}}</span> @enderror <br>
                             <label>Slug</label>
                             <input type="text" class="form-control" placeholder="Category Slug" wire:model="slug">
+                            @error('slug')<span class="text-danger">{{$message}}</span> @enderror
                             <button type="submit" class="bnt btn-success form-control" style="width: 150px; text-align:center; margin-top:20px;">Submit</button>
                         </form>
                     </div>

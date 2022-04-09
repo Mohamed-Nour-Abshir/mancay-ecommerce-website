@@ -34,15 +34,15 @@
                           </div>
                           <div class="form-group">
                               <label class="col-md-4 control-label">Short Description</label>
-                              <div class="col-md-4">
-                                <textarea type="text" class="form-control input-md" placeholder="Short Description" wire:model="short_description"></textarea>
+                              <div class="col-md-4" wire:ignore>
+                                <textarea type="text" id="short_description" class="form-control input-md" placeholder="Short Description" wire:model="short_description"></textarea>
                                 @error('short_description')<span class="text-danger">{{$message}}</span> @enderror <br>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-md-4 control-label">Description</label>
-                              <div class="col-md-4">
-                                <textarea type="text" class="form-control input-md" placeholder="Description" wire:model="description"></textarea>
+                              <div class="col-md-4" wire:ignore>
+                                <textarea type="text" id="description" class="form-control input-md" placeholder="Description" wire:model="description"></textarea>
                                 @error('description')<span class="text-danger">{{$message}}</span> @enderror <br>
                               </div>
                           </div>
@@ -70,7 +70,7 @@
                           <div class="form-group">
                             <label class="col-md-4 control-label">Stock</label>
                             <div class="col-md-4">
-                              <select name="" id="" class="form-control" wire:model="instock">
+                              <select name="" id="" class="form-control" wire:model="stock_status">
                                   <option value="instock">InStock</option>
                                   <option value="outofstock">out Of Stock</option>
                               </select>
@@ -128,5 +128,33 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(function(){
+            tinymce.init({
+                selector:'#short_description',
+                setup:function(editor) {
+                    editor.on('change',function(e){
+                        tinyMCE.triggerSave();
+                        var sd_data = $('#short_description').val();
+                        @this.set('short_description', sd_data);
+                    });
+                }
+            });
+
+            tinymce.init({
+                selector:'#description',
+                setup:function(editor) {
+                    editor.on('change',function(e){
+                        tinyMCE.triggerSave();
+                        var d_data = $('#description').val();
+                        @this.set('description', d_data);
+                    });
+                }
+            })
+        });
+    </script>
+@endpush
 
 

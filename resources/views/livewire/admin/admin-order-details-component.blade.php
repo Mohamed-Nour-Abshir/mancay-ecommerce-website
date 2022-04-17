@@ -26,7 +26,7 @@
                                 @if($order->status == "delivered")
                                 <th>Delivered Date</th>
                                 <td>{{$order->delivered_date}}</td>
-                                @elseif($order->status == "cancaled")
+                                @elseif($order->status == "canceled")
                                 <th>Cancellation Date</th>
                                 <td>{{$order->cancaled_date}}</td>
                                 @endif

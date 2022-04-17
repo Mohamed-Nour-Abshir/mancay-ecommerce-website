@@ -1,17 +1,53 @@
 <div>
     <div class="container" style="padding: 30px 0;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                             Order Details
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{route('admin.orders')}}" class="btn btn-success pull-right">All Orders</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Order Id</th>
+                                <td>{{$order->id}}</td>
+                                <th>Ordered Date</th>
+                                <td>{{$order->created_at}}</td>
+                                <th>Order Status</th>
+                                <td>{{$order->status}}</td>
+                                @if($order->status == "delivered")
+                                <th>Delivered Date</th>
+                                <td>{{$order->delivered_date}}</td>
+                                @elseif($order->status == "cancaled")
+                                <th>Cancellation Date</th>
+                                <td>{{$order->cancaled_date}}</td>
+                                @endif
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
        <div class="row">
            <div class="col-md-12">
                <div class="panel panel-default">
                    <div class="panel-heading">
-                       <div class="row">
-                           <div class="col-md-6">
-                            Ordered Items
-                           </div>
-                           <div class="col-md-6">
-                               <a href="{{route('admin.orders')}}" class="btn btn-success pull-right">All Orders</a>
-                           </div>
-                       </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                         Ordered Items
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
                    </div>
                    <div class="panel-body">
                     <div class="wrap-iten-in-cart">

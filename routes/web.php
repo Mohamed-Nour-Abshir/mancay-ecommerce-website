@@ -27,6 +27,7 @@ use App\Http\Livewire\Admin\AdminEditProduct;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoriesComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\ThankyouComponent;
 use Illuminate\Support\Facades\Route;
@@ -92,5 +93,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
    Route::get('/admin/coupons',AdminCouponsComponent::class)->name('admin.coupons');
    Route::get('/admin/coupon/add',AdminAddCouponComponent::class)->name('admin.addcoupon');
    Route::get('/admin/coupon/edit/{coupon_id}',AdminEditCouponComponent::class)->name('admin.editcoupon');
+
+//    orders
+   Route::get('/admin/orders',AdminOrderComponent::class)->name('admin.orders');
 });
+
 

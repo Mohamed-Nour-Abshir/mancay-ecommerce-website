@@ -41,7 +41,9 @@
 
                             </tbody>
                         </table>
-                        {{$categories->links()}}
+                        <div class="wrap-pagination-info">
+                            {{$categories->links()}}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -31,6 +31,7 @@ use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
+use App\Http\Livewire\Admin\AdminSettingsComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserChangePasswordComponent;
@@ -111,6 +112,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 //    contact-us
    Route::get('/admin/contact-us',AdminContactUsComponent::class)->name('admin.contacts');
+//    settings
+   Route::get('/admin/settings',AdminSettingsComponent::class)->name('admin.settings');
 });
 
 

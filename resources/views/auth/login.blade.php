@@ -96,5 +96,4 @@
 		</div><!--end container-->
 
 	</main>
-	<!--main area-->
 </x-guest-layout>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\OrderMail;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
@@ -10,6 +11,7 @@ use Cart;
 use Exception;
 use Stripe;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class CheckoutComponent extends Component
@@ -234,6 +236,7 @@ class CheckoutComponent extends Component
           }
 
         }
+        $this->sendOrderConfirmationMail($order);
 
     }
     public function resetCart(){
@@ -249,6 +252,11 @@ class CheckoutComponent extends Component
         $transaction->mode = 'cod';
         $transaction->status = $status;
         $transaction->save();
+    }
+
+    // send mail after order placed
+    public function sendOrderConfirmationMail($order){
+        Mail::to($order->email)->send(new OrderMail($order));
     }
     //verify for checkout if user-loggedin or user-cart is empty
     public function verifyForCheckout(){

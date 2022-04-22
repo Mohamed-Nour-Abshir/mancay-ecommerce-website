@@ -17,14 +17,41 @@
                         @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <form wire:submit.prevent="storeCategory">
-                            <label>Category Name</label>
-                            <input type="text" class="form-control" placeholder="Category name" wire:model="name" wire:keyup="generateSlug">
-                            @error('name')<span class="text-danger">{{$message}}</span> @enderror <br>
-                            <label>Slug</label>
-                            <input type="text" class="form-control" placeholder="Category Slug" wire:model="slug">
-                            @error('slug')<span class="text-danger">{{$message}}</span> @enderror
-                            <button type="submit" class="bnt btn-success form-control" style="width: 150px; text-align:center; margin-top:20px;">Submit</button>
+                        <form wire:submit.prevent="storeCategory" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Category Name</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control input-md" placeholder="Category name" wire:model="name" wire:keyup="generateSlug">
+                                    @error('name')<span class="text-danger">{{$message}}</span> @enderror <br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Slug</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control input-md" placeholder="Category Slug" wire:model="slug">
+                                    @error('slug')<span class="text-danger">{{$message}}</span> @enderror <br>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Parent Category</label>
+                                <div class="col-md-4">
+                                    <select class="form-control input-md" wire:model="category_id">
+                                        <option value="">None</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

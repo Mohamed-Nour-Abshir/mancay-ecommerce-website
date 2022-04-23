@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\category;
 use App\Models\product;
+use App\Models\subcategory;
 use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
 use Livewire\Component;
@@ -28,6 +29,7 @@ class AddNewProductComponent extends Component
     public $image;
     public $images;
     public $category_id;
+    public $scategory_id;
 
     public function mount(){
         $this->stock_status = 'instock';
@@ -97,13 +99,20 @@ class AddNewProductComponent extends Component
         }
 
         $product->category_id = $this->category_id;
-
+        if($this->scategory_id){
+            $product->subcategory_id = $this->scategory_id;
+        }
         $product->save();
         Session()->flash('message','One Product has been added Successfully');
+    }
+
+    public function changeSubcategory(){
+        $this->scategory_id =0;
     }
     public function render()
     {
         $categories = category::all();
-        return view('livewire.admin.add-new-product-component',['categories'=>$categories])->layout('layouts.home');
+        $scategories = subcategory::where('category_id',$this->category_id)->get();
+        return view('livewire.admin.add-new-product-component',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.home');
     }
 }

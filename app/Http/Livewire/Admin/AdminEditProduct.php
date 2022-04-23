@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\category;
 use App\Models\product;
+use App\Models\subcategory;
 use Livewire\Component;
 use illuminate\Support\Str;
 use Carbon\Carbon;
@@ -29,6 +30,7 @@ class AdminEditProduct extends Component
 
     public $images;
     public $newimages;
+    public $scategory_id;
 
     public function mount($product_slug){
         $product = product::where('slug',$product_slug)->first();
@@ -46,6 +48,7 @@ class AdminEditProduct extends Component
         $this->image = $product->image;
         $this->images = explode(",",$product->images);
         $this->category_id = $product->category_id;
+        $this->scategory_id = $product->subcategory_id;
         $this->product_id = $product->id;
     }
     public function generateSlug(){
@@ -126,15 +129,20 @@ class AdminEditProduct extends Component
             }
             $product->images = $imagesname;
         }
-
-
         $product->category_id = $this->category_id;
+        if($this->scategory_id){
+            $product->subcategory_id = $this->scategory_id;
+        }
         $product->save();
         Session()->flash('message','One Product has been Updated Successfully');
+    }
+    public function changeSubcategory(){
+        $this->scategory_id =0;
     }
     public function render()
     {
         $categories = category::all();
-        return view('livewire.admin.admin-edit-product',['categories'=>$categories])->layout('layouts.home');
+        $scategories = subcategory::where('category_id',$this->category_id)->get();
+        return view('livewire.admin.admin-edit-product',['categories'=>$categories,'scategories'=>$scategories])->layout('layouts.home');
     }
 }

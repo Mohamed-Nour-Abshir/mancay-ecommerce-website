@@ -20,16 +20,19 @@ use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AddNewProductComponent;
 use App\Http\Livewire\Admin\AdminAddCouponComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminAddProductAttributeComponent;
 use App\Http\Livewire\Admin\AdminContactUsComponent;
 use App\Http\Livewire\Admin\AdminCouponsComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProduct;
+use App\Http\Livewire\Admin\AdminEditProductAttributeComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoriesComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
+use App\Http\Livewire\Admin\AdminProductAttributesComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminSettingsComponent;
 use App\Http\Livewire\ContactComponent;
@@ -118,6 +121,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
    Route::get('/admin/contact-us',AdminContactUsComponent::class)->name('admin.contacts');
 //    settings
    Route::get('/admin/settings',AdminSettingsComponent::class)->name('admin.settings');
+//  Product Attributes
+    Route::get('/admin/attributes',AdminProductAttributesComponent::class)->name('admin.attributes');
+    Route::get('/admin/attributes/add',AdminAddProductAttributeComponent::class)->name('admin.add_attributes');
+    Route::get('/admin/attributes/edit/{attribute_id}',AdminEditProductAttributeComponent::class)->name('admin.edit_attributes');
 });
 
 

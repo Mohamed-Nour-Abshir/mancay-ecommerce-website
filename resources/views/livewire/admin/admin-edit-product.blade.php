@@ -154,6 +154,33 @@
                           </div>
 
                           <div class="form-group">
+                            <label class="col-md-4 control-label">Product Attribute</label>
+                            <div class="col-md-3">
+                              <select name="" id="" class="form-control" wire:model="attr">
+                                  <option value="0">Select Attribute</option>
+                                  @foreach ($pattributes as $pattribute)
+                                    <option value="{{$pattribute->id}}">{{$pattribute->name}}</option>
+                                  @endforeach
+                              </select>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-info" wire:click.prevent="add">Add</button>
+                            </div>
+                          </div>
+
+                          @foreach ($inputs as $key => $value)
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{{$pattributes->where('id',$attribute_arr[$key])->first()->name}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control input-md" placeholder="{{$pattributes->where('id',$attribute_arr[$key])->first()->name}}" wire:model="attribute_values.{{$value}}">
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" class="btn btn-danger btn-sm" wire:click.prevent="remove({{$key}})">Remove</button>
+                                </div>
+                            </div>
+                          @endforeach
+
+                          <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
                              <button type="submit" class="btn btn-success">Update</button>

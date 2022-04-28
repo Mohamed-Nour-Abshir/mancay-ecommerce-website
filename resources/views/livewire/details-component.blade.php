@@ -63,13 +63,33 @@
                             <a class="link-socail" href="#"><img src="{{asset('assets/images/social-list.png')}}" alt=""></a>
                         </div>
                         @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
-                        <div class="wrap-price"><ins><p class="product-price">${{$product->sale_price}}</p></ins> <del><p class="product-price">${{$product->regular_price}}</p></del></div>
+                            <div class="wrap-price"><ins><p class="product-price">${{$product->sale_price}}</p></ins> <del><p class="product-price">${{$product->regular_price}}</p></del></div>
                         @else
-                        <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
+                            <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
                         @endif
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{$product->stock_status}}</b></p>
                         </div>
+
+
+                        <div>
+                            @foreach ($product->attributeValues->unique('product_attribute_id') as $av)
+                                <div class="row" style="margin-top: 20px">
+                                    <div class="col-xs-2">
+                                        <p>{{$av->productAttribute->name}}</p>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <select class="form-control" style="width:200px;" wire:model="sattr.{{$av->productAttribute->name}}">
+                                            @foreach ($av->productAttribute->attributeValues->where('product_id',$product->id) as $pav)
+                                                <option value="{{$pav->value}}">{{$pav->value}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+
                         <div class="quantity">
                             <span>Quantity:</span>
                             <div class="quantity-input">

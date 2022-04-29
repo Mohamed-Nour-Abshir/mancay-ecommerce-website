@@ -56,15 +56,34 @@
                                         <ul>
                                             <li>
                                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                <p class="contact-txt">{{$settings->address}}</p>
+                                                <p class="contact-txt">
+                                                    @if ($settings)
+                                                        {{$settings->address}}
+                                                    @else
+                                                        Rampura,Bonsree
+                                                    @endif
+
+                                                </p>
                                             </li>
                                             <li>
                                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                                <p class="contact-txt">{{$settings->phone}} - {{$settings->phone2}}</p>
+                                                <p class="contact-txt">
+                                                    @if ($settings)
+                                                        {{$settings->phone}} - {{$settings->phone2}}
+                                                    @else
+                                                        01730931984 - 01730931985
+                                                    @endif
+                                                </p>
                                             </li>
                                             <li>
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                <p class="contact-txt">{{$settings->email}}</p>
+                                                <p class="contact-txt">
+                                                    @if ($settings)
+                                                        {{$settings->email}}
+                                                    @else
+                                                        mdnourabshir@gmail.com
+                                                    @endif
+                                                </p>
                                             </li>
                                         </ul>
                                     </div>
@@ -79,7 +98,13 @@
                                 <div class="item-content">
                                     <div class="wrap-hotline-footer">
                                         <span class="desc">Call Us toll Free</span>
-                                        <b class="phone-number">{{$settings->phone}} - (+880){{$settings->phone2}}</b>
+                                        <b class="phone-number">
+                                            @if ($settings)
+                                                {{$settings->phone}} - {{$settings->phone2}}
+                                            @else
+                                                01730931984 - 01730931985
+                                            @endif
+                                        </b>
                                     </div>
                                 </div>
                             </div>
@@ -152,11 +177,11 @@
                                 <div class="item-content">
                                     <div class="wrap-list-item social-network">
                                         <ul>
-                                            <li><a href="{{$settings->twitter}}" class="link-to-item" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->facebokk}}" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->pinterest}}" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->instagram}}" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                            <li><a href="{{$settings->youtube}}" class="link-to-item" title="youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                            <li><a href="@if($settings){{$settings->twitter}}@else # @endif" class="link-to-item" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="@if($settings){{$settings->facebokk}}@else # @endif" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="@if($settings){{$settings->pinterest}}@else # @endif" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                            <li><a href="@if($settings){{$settings->instagram}}@else # @endif" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            <li><a href="@if($settings){{$settings->youtube}}@else # @endif" class="link-to-item" title="youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -235,15 +260,15 @@
             <div class="coppy-right-box">
                 <div class="container">
                     <div class="coppy-right-item item-left">
-                        <p class="coppy-right-text">Copyright © 2022 Surfside Media. All rights reserved</p>
+                        <p class="coppy-right-text">Copyright © 2022 Heer-Sare. All rights reserved</p>
                     </div>
                     <div class="coppy-right-item item-right">
                         <div class="wrap-nav horizontal-nav">
                             <ul>
-                                <li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
-                                <li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
-                                <li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-                                <li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
+                                <li class="menu-item"><a href="/about" class="link-term">About us</a></li>
+                                <li class="menu-item"><a href="{{route('policy')}}" class="link-term">Privacy Policy</a></li>
+                                <li class="menu-item"><a href="{{route('termsandconditions')}}" class="link-term">Terms & Conditions</a></li>
+                                <li class="menu-item"><a href="{{route('retun_policy')}}" class="link-term">Return Policy</a></li>
                             </ul>
                         </div>
                     </div>

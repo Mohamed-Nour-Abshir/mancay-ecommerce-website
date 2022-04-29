@@ -124,15 +124,14 @@
                             <div class="tab-content-item " id="add_infomation">
                                 <table class="shop_attributes">
                                     <tbody>
-                                        <tr>
-                                            <th>Weight</th><td class="product_weight">1 kg</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
-                                        </tr>
+                                        @foreach ($product->attributeValues->unique('product_attribute_id') as $av)
+                                            <tr>
+                                                <th>{{$av->productAttribute->name}} : </th>
+                                                @foreach ($av->productAttribute->attributeValues->where('product_id',$product->id) as $pav)
+                                                    <td><p>{{$pav->value}}</p></td>
+                                                @endforeach
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -165,7 +164,7 @@
                                             @foreach ($product->orderItems->where('rstatus',1) as $orderItem)
                                                 <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
                                                     <div id="comment-20" class="comment_container">
-                                                        <img alt="{{$orderItem->order->user->name}}" src="{{asset('assets/images/profile')}}/{{$orderItem->order->user->profile->image}}" height="80" width="80">
+                                                        <img alt="{{$orderItem->order->user->name}}" src="@if($orderItem->order->user->profile){{asset('assets/images/profile')}}/{{$orderItem->order->user->profile->image}} @else {{asset('assets/images/profile/default.png')}} @endif " height="80" width="80">
                                                         <div class="comment-text">
                                                             <div class="star-rating">
                                                                 <span class="width-{{$orderItem->review->rating * 20}}-percent">Rated <strong class="rating">{{$orderItem->review->rating}}</strong> out of 5</span>

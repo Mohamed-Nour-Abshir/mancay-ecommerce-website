@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Coupon;
+use App\Models\product;
 use Livewire\Component;
 use Illuminate\Support\Carbon;
 use Cart;
@@ -144,6 +145,7 @@ class CartComponent extends Component
             Cart::instance('cart')->store(Auth::user()->email);
             Cart::instance('wishlist')->store(Auth::user()->email);
         }
-        return view('livewire.cart-component')->layout('layouts.home');
+        $popular_products = product::inRandomOrder()->limit(4)->get();
+        return view('livewire.cart-component',['popular_products'=>$popular_products])->layout('layouts.home');
     }
 }

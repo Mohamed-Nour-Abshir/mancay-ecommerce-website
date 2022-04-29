@@ -19,7 +19,7 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>OrderId</th>
+                                    <th>Order</th>
                                     <th>Subtotal</th>
                                     <th>Discount</th>
                                     <th>Tax</th>

@@ -10,6 +10,13 @@
         </div>
         <div class="row">
 
+            @if (Session::has('message'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{Session::get('message')}}
+                </div>
+            @endif
+
             <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
@@ -106,8 +113,8 @@
                              <a href="#" class="btn add-to-cart" wire:click.prevent="store('{{$product->id}}','{{$product->name}}','{{$product->regular_price}}')">Add to Cart</a>
                             @endif
                             <div class="wrap-btn">
-                                <a href="#" class="btn btn-compare">Add Compare</a>
-                                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
+                                <a href="" class="btn btn-wishlist" wire:click.prevent="addToWishlist('{{$product->id}}','{{$product->name}}','{{$product->regular_price}}')">Add Wishlist</a>
+                                {{-- <a href="#" class="btn btn-wishlist">Add Wishlist</a> --}}
                             </div>
                         </div>
                     </div>
@@ -291,3 +298,5 @@
 
 </main>
 <!--main area-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

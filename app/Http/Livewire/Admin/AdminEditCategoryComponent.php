@@ -39,7 +39,7 @@ class AdminEditCategoryComponent extends Component
     public function updated($fields){
         $this->validateOnly($fields,[
             'name' => 'required',
-            'slug' => 'required|unique:categories'
+            'slug' => 'required'
         ]);
     }
     public function generateSlug(){
@@ -48,7 +48,7 @@ class AdminEditCategoryComponent extends Component
     public function updateCategory(){
         $this->validate([
             'name' => 'required',
-            'slug' => 'required|unique:categories'
+            'slug' => 'required'
         ]);
 
         if($this->scategory_id){

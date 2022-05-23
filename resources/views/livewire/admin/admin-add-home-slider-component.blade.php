@@ -22,24 +22,28 @@
                               <label class="col-md-4 control-label">Title</label>
                               <div class="col-md-4">
                                 <input type="text" class="form-control input-md" placeholder="Title" wire:model="title">
+                                @error('title')<span class="text-danger">{{$message}}</span> @enderror <br>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-md-4 control-label">Subtitle</label>
                               <div class="col-md-4">
                                 <input type="text" class="form-control input-md" placeholder="Subtitle" wire:model="subtitle">
+                                @error('subtitle')<span class="text-danger">{{$message}}</span> @enderror <br>
                               </div>
                           </div>
                           <div class="form-group">
                             <label class="col-md-4 control-label">Price</label>
                             <div class="col-md-4">
                               <input type="text" class="form-control input-md" placeholder="Price" wire:model="price">
+                              @error('price')<span class="text-danger">{{$message}}</span> @enderror <br>
                             </div>
                         </div>
                           <div class="form-group">
                             <label class="col-md-4 control-label">Link</label>
                             <div class="col-md-4">
                               <input type="text" class="form-control input-md" placeholder="Link" wire:model="link">
+                              @error('link')<span class="text-danger">{{$message}}</span> @enderror <br>
                             </div>
                           </div>
                           <div class="form-group">
@@ -58,6 +62,7 @@
                                 @if ($image)
                                     <img src="{{ $image->temporaryUrl() }}" width="120">
                                 @endif
+                                @error('image')<span class="text-danger">{{$message}}</span> @enderror <br>
                             </div>
                           </div>
                           <div class="form-group">

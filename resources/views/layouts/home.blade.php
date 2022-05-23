@@ -48,14 +48,14 @@
                     </div>
                     <div class="topbar-menu right-menu">
                         <ul>
-                            <li class="menu-item lang-menu menu-item-has-children parent">
+                            {{-- <li class="menu-item lang-menu menu-item-has-children parent">
                                 <a title="English" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="submenu lang" >
                                     <li class="menu-item" ><a title="Somali Language" href="#"><span class="img label-before"><img src="{{asset('assets/images/somali_flag.png')}}" alt="lang-hsomali"></span>Somali</a></li>
                                     <li class="menu-item" ><a title="Bengali Language" href="#"><span class="img label-before"><img src="{{asset('assets/images/bengali_flag.png')}}" alt="lang-bengali"></span>Bengali</a></li>
                                     <li class="menu-item" ><a title="Bengali Language" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-eng"></span>English</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li class="menu-item menu-item-has-children parent" >
                                 <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="submenu curency" >
@@ -70,7 +70,6 @@
                                     </li>
                                 </ul>
                             </li>
-
                             @if (Route::has('login'))
                                 @auth
                                   @if (Auth::user()->usertype==='ADM')
@@ -119,30 +118,7 @@
                                         </ul>
                                     </li>
                                     @else
-                                     <li class="menu-item menu-item-has-children parent" >
-                                        <a title="account" href="#">My Account({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                        <ul class="submenu curency" >
-                                            <li class="menu-item" >
-                                                <a title="dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="My Profile" href="{{route('user.profile')}}">My Profile</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Orders" href="{{route('user.orders')}}">My Orders</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Change-password" href="{{route('user.changepassword')}}">Change Password</a>
-                                            </li>
-                                            <hr>
-                                            <li class="menu-item">
-                                                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                            </li>
-                                            <form id="logout-form" action="{{route('logout')}}" method="POST">
-                                                @csrf
-                                            </form>
-                                        </ul>
-                                    </li>
+                                     @livewire('user.user-navbar-component')
                                     @endif
 
                                     @else
@@ -184,11 +160,11 @@
                 <div class="header-nav-section">
                     <div class="container">
                         <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info" >
-                            <li class="menu-item"><a href="#Product-categories" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
-                            <li class="menu-item"><a href="#on-sale" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
-                            <li class="menu-item"><a href="#Latest-products" class="link-term">Top new items</a><span class="nav-label hot-label">hot</span></li>
-                            <li class="menu-item"><a href="#on-sale" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
-                            <li class="menu-item"><a href="#Latest-products" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
+                            <li class="menu-item page-scroll"><a href="#Product-categories" class="link-term scroll">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
+                            <li class="menu-item page-scroll"><a href="#on-sale" class="link-term scroll">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
+                            <li class="menu-item page-scroll"><a href="#Latest-products" class="link-term scroll">Top new items</a><span class="nav-label hot-label">hot</span></li>
+                            <li class="menu-item page-scroll"><a href="#on-sale" class="link-term scroll">Top Selling</a><span class="nav-label hot-label">hot</span></li>
+                            <li class="menu-item page-scroll"><a href="#Latest-products" class="link-term scroll">Top rated items</a><span class="nav-label hot-label">hot</span></li>
                         </ul>
                     </div>
                 </div>
@@ -241,6 +217,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" integrity="sha512-Y+0b10RbVUTf3Mi0EgJue0FoheNzentTMMIE2OreNbqnUPNbQj8zmjK3fs5D2WhQeGWIem2G2UkKjAL/bJ/UXQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js" integrity="sha512-T5Bneq9hePRO8JR0S/0lQ7gdW+ceLThvC80UjwkMRz+8q+4DARVZ4dqKoyENC7FcYresjfJ6ubaOgIE35irf4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).ready(function(){
+        var scrollLink = $(".scroll");
+
+        scrollLink.click(function(e){
+            e.preventDefault();
+            $("body, html").animate({
+                scrollTop: $(this.hash).offset().top
+            },1000)
+        });
+    });
+</script>
+
 @livewireScripts
 @stack('scripts')
 </body>

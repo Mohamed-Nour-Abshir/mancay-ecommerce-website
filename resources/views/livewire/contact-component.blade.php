@@ -40,7 +40,8 @@
                         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                             <div class="contact-box contact-info">
                                 <div class="wrap-map">
-                                    <iframe src="{{$settings->map}}" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <iframe src="@if ($settings){{$settings->map}} @else https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7303.17235780799!2d90.4327945!3d23.762131999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b80a03c8e22f%3A0xd52685f4a2fe003c!2sBanasree%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1653212913357!5m2!1sen!2sbd @endif" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                                 </div>
                                 <h2 class="box-title">Contact Detail</h2>
                                 <div class="wrap-icon-box">
@@ -49,7 +50,13 @@
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                         <div class="right-info">
                                             <b>Email</b>
-                                            <p>{{$settings->email}}</p>
+                                            <p>
+                                                @if ($settings)
+                                                    {{$settings->email}}
+                                                @else
+                                                    mdnourabshir@gmail.com
+                                                @endif
+                                            </p>
                                         </div>
                                     </div>
 
@@ -57,7 +64,13 @@
                                         <i class="fa fa-phone" aria-hidden="true"></i>
                                         <div class="right-info">
                                             <b>Phone</b>
-                                            <p>{{$settings->phone}}</p>
+                                            <p>
+                                                @if ($settings)
+                                                    {{$settings->phone}} - {{$settings->phone2}}
+                                                @else
+                                                    01730931984 - 01730931985
+                                                @endif
+                                            </p>
                                         </div>
                                     </div>
 
@@ -65,7 +78,13 @@
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                                         <div class="right-info">
                                             <b>Address</b>
-                                            <p>{{$settings->address}}</p>
+                                            <p>
+                                                @if ($settings)
+                                                    {{$settings->address}}
+                                                @else
+                                                    Rampura,Bonsree
+                                                @endif
+                                            </p>
                                         </div>
                                     </div>
 

@@ -48,6 +48,18 @@
 </x-guest-layout> --}}
 <x-home-layout>
 
+    <style>
+        .signup{
+            margin-top: 30px;
+        }
+        .signup-link{
+            font-style: italic;
+            font-size: 18px;
+        }
+        .signup-link:hover{
+            color: red;
+        }
+    </style>
 	<!--main area-->
 	<main id="main" class="main-site left-sidebar">
 
@@ -85,7 +97,11 @@
 										</label>
 										<a class="link-function left-position" href="{{route('password.request')}}" title="Forgotten password?">Forgotten password?</a>
 									</fieldset>
-									<input type="submit" class="btn btn-submit" value="Login" name="submit">
+                                    <div class="login-and-registerlink">
+                                        <input type="submit" class="btn btn-submit pull-left" value="Login" name="submit">
+                                        <p class="pull-right signup">i don't have account <a class="signup-link" href="{{route('register')}}">sign up?</a></p>
+                                    </div>
+
 								</form>
 							</div>
 						</div>

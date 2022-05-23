@@ -31,6 +31,14 @@ class DetailsComponent extends Component
         }
     }
 
+    // add product to wish-list
+    public function addToWishlist($product_id, $product_name, $product_price){
+        Cart::instance('wishlist')->add($product_id,$product_name, 1, $product_price)->associate('App\Models\Product');
+        $this->emitTo('wishlist-count-component','refreshComponent');
+
+        session()->flash('message','Product has been added to the wishlist');
+    }
+
     public function render()
     {
         $product = product::where('slug',$this->slug)->first();

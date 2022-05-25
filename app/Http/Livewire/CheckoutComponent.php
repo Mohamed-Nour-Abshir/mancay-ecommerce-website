@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
 use App\Models\Transaction;
+use App\Providers\RouteServiceProvider;
 use Cart;
 use Exception;
 use Stripe;
@@ -252,7 +253,7 @@ class CheckoutComponent extends Component
         $transaction = new Transaction();
         $transaction->user_id = Auth::user()->id;
         $transaction->order_id = $order_id;
-        $transaction->mode = 'cod';
+        $transaction->mode = $this->paymentmode;
         $transaction->status = $status;
         $transaction->save();
     }
@@ -264,7 +265,7 @@ class CheckoutComponent extends Component
     //verify for checkout if user-loggedin or user-cart is empty
     public function verifyForCheckout(){
         if(!Auth::check()){
-            return redirect()->route('login');
+             return redirect()->route('login');
         }
         else if($this->thankyou){
             return redirect()->route('thankyou');
@@ -272,6 +273,7 @@ class CheckoutComponent extends Component
         else if(!session()->get('checkout')){
             return redirect()->route('product.cart');
         }
+
     }
     public function render()
     {

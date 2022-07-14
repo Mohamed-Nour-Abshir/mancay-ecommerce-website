@@ -27,6 +27,6 @@ class AdminHomeCategoriesComponent extends Component
     public function render()
     {
         $categories = category::all();
-        return view('livewire.admin.admin-home-categories-component',['categories'=>$categories])->layout('layouts.home');
+        return view('livewire.admin.admin-home-categories-component',['categories'=>$categories])->layout('layouts.admin');
     }
 }

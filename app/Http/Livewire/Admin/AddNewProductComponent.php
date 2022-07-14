@@ -121,8 +121,10 @@ class AddNewProductComponent extends Component
         if($this->scategory_id){
             $product->subcategory_id = $this->scategory_id;
         }
+
         $product->save();
 
+        if($this->attr){
         foreach($this->attribute_values as $key => $attribute_value){
             $values = explode(",",$attribute_value);
             foreach($values as $value){
@@ -133,6 +135,7 @@ class AddNewProductComponent extends Component
                 $attr_value->save();
             }
         }
+    }
         Session()->flash('message','One Product has been added Successfully');
     }
 
@@ -144,6 +147,6 @@ class AddNewProductComponent extends Component
         $categories = category::all();
         $scategories = subcategory::where('category_id',$this->category_id)->get();
         $pattributes = ProductAttribute::all();
-        return view('livewire.admin.add-new-product-component',['categories'=>$categories,'scategories'=>$scategories,'pattributes'=>$pattributes])->layout('layouts.home');
+        return view('livewire.admin.add-new-product-component',['categories'=>$categories,'scategories'=>$scategories,'pattributes'=>$pattributes])->layout('layouts.admin');
     }
 }

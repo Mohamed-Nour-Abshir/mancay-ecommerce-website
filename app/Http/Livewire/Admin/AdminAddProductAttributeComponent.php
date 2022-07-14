@@ -26,6 +26,6 @@ class AdminAddProductAttributeComponent extends Component
     }
     public function render()
     {
-        return view('livewire.admin.admin-add-product-attribute-component')->layout('layouts.home');
+        return view('livewire.admin.admin-add-product-attribute-component')->layout('layouts.admin');
     }
 }

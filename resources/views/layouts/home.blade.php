@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>
+	<title>Heer-Sare</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico')}}">
-	<link href="{{ asset('https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext')}}" rel="stylesheet">
-	<link href="{{ asset('https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext')}}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css')}}">
@@ -48,14 +48,6 @@
                     </div>
                     <div class="topbar-menu right-menu">
                         <ul>
-                            {{-- <li class="menu-item lang-menu menu-item-has-children parent">
-                                <a title="English" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <ul class="submenu lang" >
-                                    <li class="menu-item" ><a title="Somali Language" href="#"><span class="img label-before"><img src="{{asset('assets/images/somali_flag.png')}}" alt="lang-hsomali"></span>Somali</a></li>
-                                    <li class="menu-item" ><a title="Bengali Language" href="#"><span class="img label-before"><img src="{{asset('assets/images/bengali_flag.png')}}" alt="lang-bengali"></span>Bengali</a></li>
-                                    <li class="menu-item" ><a title="Bengali Language" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-eng"></span>English</a></li>
-                                </ul>
-                            </li> --}}
                             <li class="menu-item menu-item-has-children parent" >
                                 <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="submenu curency" >
@@ -79,38 +71,9 @@
                                             <li class="menu-item" >
                                                 <a title="dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
                                             </li>
-                                            <li class="menu-item" >
-                                                <a title="categories" href="{{route('admin.categories')}}">Categories</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Attributes" href="{{route('admin.attributes')}}">All Attributes</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Products" href="{{route('admin.products')}}">All Products</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Home Slider" href="{{route('admin.homeslider')}}">Manage Home Slider</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Manage Home Categories" href="{{route('admin.homecategories')}}">Manage Home categories</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Sale Settings" href="{{route('admin.sale')}}">Sale Settings</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="All Coupon" href="{{route('admin.coupons')}}">All Coupon</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="All Orders" href="{{route('admin.orders')}}">All Orders</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Contact Messages" href="{{route('admin.contacts')}}">Contact Messages</a>
-                                            </li>
-                                            <li class="menu-item" >
-                                                <a title="Settings" href="{{route('admin.settings')}}">Settings</a>
-                                            </li>
+
                                             <li class="menu-item">
-                                                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
                                             </li>
                                             <form id="logout-form" action="{{route('logout')}}" method="POST">
                                                 @csrf
@@ -139,7 +102,7 @@
                         <a href="/" class="link-to-home"><img src="{{asset('assets/images/log3.jpg')}}" alt="mercado"></a>
                     </div>
 
-                    @livewire('header-search-component');
+                    @livewire('header-search-component')
 
                     <div class="wrap-icon right-section">
                         @livewire('wishlist-count-component')
@@ -172,7 +135,7 @@
                 <div class="primary-nav-section">
                     <div class="container">
                         <ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-                            <li class="menu-item home-icon">
+                            <li class="menu-item home-icon {{ request()->is('*/*') ? 'active' : '' }}">
                                 <a href="{{url('/')}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
                             </li>
                             <li class="menu-item">

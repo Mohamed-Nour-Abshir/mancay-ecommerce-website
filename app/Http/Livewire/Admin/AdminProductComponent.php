@@ -4,10 +4,8 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\product;
-use Livewire\WithPagination;
 class AdminProductComponent extends Component
 {
-    use WithPagination;
     public $searchTerm;
     public function deleteProduct($id){
 
@@ -34,6 +32,6 @@ class AdminProductComponent extends Component
                               ->orwhere('regular_price','LIKE',$search)
                               ->orwhere('sale_price','LIKE',$search)
                               ->orderBy('id','DESC')->paginate(5);
-        return view('livewire.admin.admin-product-component',['products'=>$products])->layout('layouts.home');
+        return view('livewire.admin.admin-product-component',['products'=>$products])->layout('layouts.admin');
     }
 }

@@ -10,6 +10,6 @@ class AdminContactUsComponent extends Component
     public function render()
     {
         $contacts = Contact::paginate(12);
-        return view('livewire.admin.admin-contact-us-component',['contacts'=>$contacts])->layout('layouts.home');
+        return view('livewire.admin.admin-contact-us-component',['contacts'=>$contacts])->layout('layouts.admin');
     }
 }

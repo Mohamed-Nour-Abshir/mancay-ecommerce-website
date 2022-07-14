@@ -15,6 +15,6 @@ class AdminCouponsComponent extends Component
     public function render()
     {
         $coupons = Coupon::all();
-        return view('livewire.admin.admin-coupons-component',['coupons'=>$coupons])->layout('layouts.home');
+        return view('livewire.admin.admin-coupons-component',['coupons'=>$coupons])->layout('layouts.admin');
     }
 }

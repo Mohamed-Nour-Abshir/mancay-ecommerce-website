@@ -2,18 +2,18 @@
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card p-5">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="pull-left">Manage Home Slider</p>
+                                <p class="pull-left card-title">Manage Home Slider</p>
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.addhomeslider')}}" class="btn btn-success pull-right">Add Sliders</a>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="table-responsive">
                         @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
@@ -44,7 +44,7 @@
                                         <td>{{$slider->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.edithomeslider',['slide_id'=>$slider->id])}}"><i class="fa fa-edit fa-2x"></i></a>
-                                            <a href="#" wire:click.prevent="deleteSlide({{$slider->id}})"><i class="fa fa-times fa-2x text-danger" style="margin-left: 10px;"></i></a>
+                                            <a href="#" onclick="confirm('Are you sure to Delete this Slide from home page?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlide({{$slider->id}})"><i class="fa fa-times fa-2x text-danger" style="margin-left: 10px;"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -24,6 +24,6 @@ class AdminSaleComponent extends Component
     }
     public function render()
     {
-        return view('livewire.admin.admin-sale-component')->layout('layouts.home');
+        return view('livewire.admin.admin-sale-component')->layout('layouts.admin');
     }
 }

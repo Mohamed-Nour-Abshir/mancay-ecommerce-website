@@ -34,7 +34,7 @@
 </div>
 
 <!--On Sale-->
-@if ($sproducts->count()>0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+@if ($sproducts->count() > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
 <div class="wrap-show-advance-info-box style-1 has-countdown" id="on-sale">
     <h3 class="title-box">On Sale</h3>
     <div class="wrap-countdown mercado-countdown" data-expire="{{ Carbon\Carbon::parse($sale->sale_date)->format('Y/m/d h:m:s') }}"></div>
@@ -58,6 +58,8 @@
 
     </div>
 </div>
+@else
+<p>No onsale products</p>
 @endif
 
 <!--Latest Products-->
@@ -94,6 +96,7 @@
 </div>
 
 <!--Product Categories-->
+
 <div class="wrap-show-advance-info-box style-1" id="Product-categories">
 <h3 class="title-box">Product Categories</h3>
 <div class="wrap-top-banner">
@@ -136,5 +139,4 @@
      </div>
     </div>
 </div>
-
 </main>

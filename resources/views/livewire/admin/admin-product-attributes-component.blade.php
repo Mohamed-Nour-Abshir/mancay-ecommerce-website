@@ -15,18 +15,18 @@
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card p-5">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="pull-left">All Attributes</p>
+                                <p class="pull-left card-title">All Attributes</p>
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.add_attributes')}}" class="btn btn-success pull-right">Add Attribute</a>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="tabel-responsive">
                         @if (Session::has('message'))
                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif

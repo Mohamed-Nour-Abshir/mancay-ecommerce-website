@@ -111,7 +111,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
    Route::get('/admin/slider/add',AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
    Route::get('/admin/slider/edit/{slide_id}',AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
 
-   Route::get('/admin/home-categories',AdminHomeCategoriesComponent::class)->name('admin.homecategories');
+   Route::get('/admin/homeCategories',AdminHomeCategoriesComponent::class)->name('admin.homecategories');
 
    Route::get('/admin/sale',AdminSaleComponent::class)->name('admin.sale');
    //coupons
@@ -124,7 +124,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
    Route::get('/admin/orders/{order_id}',AdminOrderDetailsComponent::class)->name('admin.orderdetails');
 
 //    contact-us
-   Route::get('/admin/contact-us',AdminContactUsComponent::class)->name('admin.contacts');
+   Route::get('/admin/contacts',AdminContactUsComponent::class)->name('admin.contacts');
 //    settings
    Route::get('/admin/settings',AdminSettingsComponent::class)->name('admin.settings');
 //  Product Attributes

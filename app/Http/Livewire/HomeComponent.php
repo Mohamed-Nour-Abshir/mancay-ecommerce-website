@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Livewire;
-use Illuminate\Support\Facades\Auth;
-use App\Models\category;
-use App\Models\HomeCategory;
-use App\Models\HomeSlider;
-use App\Models\product;
 use App\Models\Sale;
+use App\Models\product;
 use Livewire\Component;
-use Cart;
+use App\Models\category;
+use App\Models\HomeSlider;
+use App\Models\HomeCategory;
+use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 class HomeComponent extends Component
 {
     public function render()

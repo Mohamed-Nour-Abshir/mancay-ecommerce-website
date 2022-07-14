@@ -1,12 +1,21 @@
+<style>
+    nav svg {
+        height: 10px;
+    }
+    svg {
+        overflow: hidden;
+        vertical-align: middle;
+    }
+</style>
 <div>
     <div class="container" style="padding: 30px 0;">
        <div class="row">
            <div class="col-md-12">
-               <div class="panel panel-default">
-                   <div class="panel-heading">
-                       Contact Messages
+               <div class="card p-5">
+                   <div class="card-body">
+                      <p class="card-title">Contact Messages</p>
                    </div>
-                   <div class="panel-body">
+                   <div class="table-responsive">
                        <table class="table table-striped table-bordered">
                            <thead>
                                <tr>

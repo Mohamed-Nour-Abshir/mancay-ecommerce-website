@@ -2,18 +2,18 @@
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card p-5">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="pull-left">All Coupons</p>
+                                <p class="card-title">All Coupons</p>
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.addcoupon')}}" class="btn btn-success pull-right">Add Coupon</a>
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="table-responsive">
                         @if (Session::has('message'))
                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif

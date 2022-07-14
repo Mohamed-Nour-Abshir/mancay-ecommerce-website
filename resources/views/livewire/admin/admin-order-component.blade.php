@@ -2,17 +2,17 @@
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card p-5">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="pull-left">All Orders</p>
+                                <p class="pull-left card-title">All Orders</p>
                             </div>
                             <div class="col-md-6">
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="table-responsive">
                         @if (Session::has('order_message'))
                             <div class="alert alert-success" role="alert">{{Session::get('order_message')}}</div>
                         @endif
@@ -55,8 +55,8 @@
                                                 <a class="btn btn-success btn-sm dropdown-toggle" type="submit" data-toggle="dropdown">Status
                                                     <span class="caret"></span></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'delivered')">Delivered</a></li>
-                                                    <li><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'canceled')">Canceled</a></li>
+                                                    <li class="dropdown-item"><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'delivered')">Delivered</a></li>
+                                                    <li class="dropdown-item"><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'canceled')">Canceled</a></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -65,13 +65,10 @@
 
                             </tbody>
                         </table>
-                        <div class="wrap-pagination-info">
-                            {{$orders->links()}}
-                        </div>
+                        {{$orders->links()}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

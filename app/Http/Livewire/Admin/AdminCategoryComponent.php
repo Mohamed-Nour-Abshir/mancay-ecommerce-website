@@ -5,11 +5,9 @@ namespace App\Http\Livewire\Admin;
 use App\Models\category;
 use App\Models\subcategory;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class AdminCategoryComponent extends Component
 {
-    use WithPagination;
     public function deleteCategory($id){
         $category = category::find($id);
         $category->delete();
@@ -24,6 +22,6 @@ class AdminCategoryComponent extends Component
     public function render()
     {
         $categoires = category::paginate(5);
-        return view('livewire.admin.admin-category-component',['categories'=>$categoires])->layout('layouts.home');
+        return view('livewire.admin.admin-category-component',['categories'=>$categoires])->layout('layouts.admin');
     }
 }

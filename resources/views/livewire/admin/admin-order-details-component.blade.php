@@ -1,12 +1,13 @@
+<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 <div>
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card p-5">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                             Order Details
+                             <p class="card-title"> Order Details</p>
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.orders')}}" class="btn btn-success pull-right">All Orders</a>
@@ -14,21 +15,21 @@
                         </div>
 
                     </div>
-                    <div class="panel-body">
+                    <div class="table-responsive">
                         <table class="table table-striped">
                             <tr>
                                 <th>Order Id</th>
-                                <td>{{$order->id}}</td>
+                                <td class="text-danger">{{$order->id}}</td>
                                 <th>Ordered Date</th>
-                                <td>{{$order->created_at}}</td>
+                                <td class="text-danger">{{$order->created_at}}</td>
                                 <th>Order Status</th>
-                                <td>{{$order->status}}</td>
+                                <td class="text-danger">{{$order->status}}</td>
                                 @if($order->status == "delivered")
                                 <th>Delivered Date</th>
-                                <td>{{$order->delivered_date}}</td>
+                                <td class="text-danger">{{$order->delivered_date}}</td>
                                 @elseif($order->status == "canceled")
                                 <th>Cancellation Date</th>
-                                <td>{{$order->cancaled_date}}</td>
+                                <td class="text-danger">{{$order->cancaled_date}}</td>
                                 @endif
                             </tr>
                         </table>
@@ -36,20 +37,21 @@
                 </div>
             </div>
         </div>
-       <div class="row">
+
+       <div class="row mt-5">
            <div class="col-md-12">
-               <div class="panel panel-default">
-                   <div class="panel-heading">
+               <div class="card p-5">
+                   <div class="card-heading">
                     <div class="row">
                         <div class="col-md-6">
-                         Ordered Items
+                         <p class="card-title">Ordered Items</p>
                         </div>
                         <div class="col-md-6">
 
                         </div>
                     </div>
                    </div>
-                   <div class="panel-body">
+                   <div class="card-body">
                     <div class="wrap-iten-in-cart">
                         <h3 class="box-title">Products Name</h3>
                         <ul class="products-cart">
@@ -91,14 +93,14 @@
            </div>
        </div>
 
-       <div class="row">
+       <div class="row mt-5">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Billing Details
+            <div class="card p-5">
+                <div class="card-body">
+                   <p class="card-title">Billing Details</p>
                 </div>
-                <div class="panel-body">
-                 <table class="table">
+                <div class="table-responsive">
+                 <table class="table table-bordered">
                      <tr>
                          <th>First Name</th>
                          <td>{{$order->firstname}}</td>
@@ -137,14 +139,14 @@
     </div>
 
      @if ($order->is_shipping_different)
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Shipping Details
+                <div class="card p-5">
+                    <div class="card-body">
+                      <p class="card-title">Shipping Details</p>
                     </div>
-                    <div class="panel-body">
-                        <table class="table">
+                    <div class="tabel-responsive">
+                        <table class="table table-bordered">
                             <tr>
                                 <th>First Name</th>
                                 <td>{{$order->shipping->firstname}}</td>
@@ -182,14 +184,14 @@
         </div>
     @endif
 
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Transaction Details
+            <div class="card p-5">
+                <div class="card-body">
+                   <p class="card-title">Transaction Details</p>
                 </div>
-                <div class="panel-body">
-                  <table class="table">
+                <div class="table-responsive">
+                  <table class="table table-bordered">
                       <tr>
                         <th>Transaction Mode</th>
                         <td>{{$order->transactions->mode}}</td>
@@ -207,5 +209,8 @@
             </div>
         </div>
     </div>
+
+
+
     </div>
 </div>

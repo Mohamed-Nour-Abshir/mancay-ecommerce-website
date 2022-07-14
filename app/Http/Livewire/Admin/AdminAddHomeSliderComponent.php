@@ -47,14 +47,16 @@ class AdminAddHomeSliderComponent extends Component
         $slider->price = $this->price;
         $slider->link = $this->link;
         $slider->status = $this->status;
+
         $imagename = Carbon::now()->timestamp.'.'. $this->image->extension();
         $this->image->storeAs('sliders',$imagename);
         $slider->image = $imagename;
+
         $slider->save();
         session()->flash('message','Slide has been created successfully');
     }
     public function render()
     {
-        return view('livewire.admin.admin-add-home-slider-component')->layout('layouts.home');
+        return view('livewire.admin.admin-add-home-slider-component')->layout('layouts.admin');
     }
 }

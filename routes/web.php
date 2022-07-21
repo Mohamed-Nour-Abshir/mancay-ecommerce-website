@@ -82,9 +82,10 @@ Route::get('/terms-conditions',TermsAndConditionsComponent::class)->name('termsa
 
 
 
+
 // User Routes
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-    Route::get('/user/dashboard',UserComponent::class)->name('user.dashboard');
+    Route::get('/user/history',UserComponent::class)->name('user.dashboard');
     Route::get('/user/orders',UserOrdersComponent::class)->name('user.orders');
     Route::get('/user/orders/{order_id}',UserOrderDetailsComponent::class)->name('user.orderdetails');
     Route::get('/user/review/{order_item_id}',UserReviewComponent::class)->name('user.review');
@@ -95,7 +96,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 });
 
 // Admin routes
-Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     // admin show dashboard
    Route::get('/admin/dashboard',AdminComponent::class)->name('admin.dashboard');
 //    admin categories

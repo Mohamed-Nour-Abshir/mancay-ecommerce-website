@@ -29,7 +29,7 @@
                             <div class="billing-address">
                                 <p class="row-in-form">
                                     <label for="fname">first name<span>*</span></label>
-                                    <input type="text" name="fname" value="" placeholder="Your name" wire:model="firstname">
+                                    <input type="text" name="fname" value="{{Auth::user()->name}}" disabled>
                                     @error('firstname') <span class="text-danger"> {{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">
@@ -39,7 +39,7 @@
                                 </p>
                                 <p class="row-in-form">
                                     <label for="email">Email Addreess:</label>
-                                    <input type="email" name="email" value="" placeholder="Type your email" wire:model="email">
+                                    <input type="email" name="email" value="{{Auth::user()->email}}" disabled>
                                     @error('email') <span class="text-danger"> {{$message}}</span> @enderror
                                 </p>
                                 <p class="row-in-form">

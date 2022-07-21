@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="{{asset('admin/vendors/ti-icons/css/themify-icons.css')}}">
   <link rel="stylesheet" href="{{asset('admin/vendors/css/vendor.bundle.base.css')}}">
   <!-- endinject -->
+  {{-- font awesome  --}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css')}}">
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
   <link rel="stylesheet" href="{{asset('admin/vendors/ti-icons/css/themify-icons.css')}}">
@@ -57,23 +59,7 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <?php
-                use App\Models\User;
-                use App\Models\Profile;
-                $userProfile = Profile::where('user_id',Auth::user()->id)->first();
-                if(!$userProfile){
-                    $profile = new Profile();
-                    $profile->user_id = Auth::user()->id;
-                    $profile->save();
-                }
-                $user = User::find(Auth::user()->id);
-
-                ?>
-                @if ($user->profile->image)
-                    <img class="img-profile" src="{{asset('assets/images/profile')}}/{{$user->profile->image}}" width="100%" alt="">
-                @else
-                    <img class="img-profile" src="{{asset('assets/images/profile/default.png')}}" width="100%" alt="">
-                @endif
+                <img class="img-profile" src="{{asset('assets/images/profile/default.png')}}" width="100%" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="">
@@ -160,7 +146,7 @@
             </a>
           </li>
 
-          <li class="nav-item {{ request()->is('*admin/slider*') ? 'active' : '' }}">
+          {{-- <li class="nav-item {{ request()->is('*admin/slider*') ? 'active' : '' }}">
             <a class="nav-link" href="{{route('admin.homeslider')}}">
               <i class="fa-solid fa-house icon-grid menu-icon"></i>
               <span class="menu-title">Manage Home Slider</span>
@@ -179,7 +165,7 @@
               <i class="fa-brands fa-salesforce icon-grid menu-icon"></i>
               <span class="menu-title">Manage OnSale Products</span>
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item {{ request()->is('*admin/coupons*') ? 'active' : '' }}">
             <a class="nav-link" href="{{route('admin.coupons')}}">

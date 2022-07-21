@@ -56,9 +56,7 @@ class CheckoutComponent extends Component
     public function updated($fields){
         // validation for billing address
         $this->validateOnly($fields,[
-            'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|email',
             'mobile' => 'required|numeric',
             'line1' => 'required',
             'city' => 'required',
@@ -93,9 +91,7 @@ class CheckoutComponent extends Component
     }
     public function placeOrder(){
         $this->validate([
-            'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|email',
             'mobile' => 'required|numeric',
             'line1' => 'required',
             'city' => 'required',
@@ -119,9 +115,9 @@ class CheckoutComponent extends Component
         $order->discount = session()->get('checkout')['discount'];
         $order->tax = session()->get('checkout')['tax'];
         $order->total = session()->get('checkout')['total'];
-        $order->firstname = $this->firstname;
+        $order->firstname = Auth::user()->name;
         $order->lastname = $this->lastname;
-        $order->email = $this->email;
+        $order->email = Auth::user()->email;
         $order->mobile = $this->mobile;
         $order->line1 = $this->line1;
         $order->line2 = $this->line2;

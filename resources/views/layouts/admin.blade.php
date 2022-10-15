@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Heer-Sare</title>
+  <title>Mancay</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('admin/vendors/feather/feather.css')}}">
   <link rel="stylesheet" href="{{asset('admin/vendors/ti-icons/css/themify-icons.css')}}">
@@ -23,7 +23,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset('admin/css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/dashboard-logo.jpg')}}">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" integrity="sha512-WWc9iSr5tHo+AliwUnAQN1RfGK9AnpiOFbmboA0A0VJeooe69YR2rLgHw13KxF1bOSLmke+SNnLWxmZd8RTESQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -37,8 +37,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="{{route('admin.dashboard')}}"><img src="{{asset('assets/images/log3.jpg')}}" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="{{route('admin.dashboard')}}"><img src="{{asset('assets/images/log3.jpg')}}" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="{{route('admin.dashboard')}}"><img src="{{asset('assets/images/front-logo.png')}}" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="{{route('admin.dashboard')}}"><img src="{{asset('assets/images/front-logo.png')}}" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -59,12 +59,32 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img class="img-profile" src="{{asset('assets/images/profile/default.png')}}" width="100%" alt="">
+                <?php
+                    use App\Models\User;
+                    use App\Models\Profile;
+                    use Illuminate\Support\Facades\Auth;
+                    $userProfile = Profile::where('user_id',Auth::user()->id)->first();
+                    if(!$userProfile){
+                        $profile = new Profile();
+                        $profile->user_id = Auth::user()->id;
+                        $profile->save();
+                    }
+                        $user = User::find(Auth::user()->id);
+                ?>
+                @if ($user->profile->image)
+                    <img class="img-profile" src="{{asset('assets/images/profile')}}/{{$user->profile->image}}" width="100%" alt="">
+                @else
+                    <img class="img-profile" src="{{asset('assets/images/profile/default.png')}}" width="100%" alt="">
+                @endif
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="">
+              <a class="dropdown-item" href="{{route("admin.profile")}}">
                 <i class="ti-user text-primary"></i>
                 Profile
+              </a>
+              <a class="dropdown-item" href="{{route("admin.changepassword")}}">
+                <i class="ti-key text-primary"></i>
+                Change Password
               </a>
               <a class="dropdown-item"  href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="ti-power-off text-primary"></i>
@@ -146,7 +166,7 @@
             </a>
           </li>
 
-          {{-- <li class="nav-item {{ request()->is('*admin/slider*') ? 'active' : '' }}">
+          <li class="nav-item {{ request()->is('*admin/slider*') ? 'active' : '' }}">
             <a class="nav-link" href="{{route('admin.homeslider')}}">
               <i class="fa-solid fa-house icon-grid menu-icon"></i>
               <span class="menu-title">Manage Home Slider</span>
@@ -165,7 +185,7 @@
               <i class="fa-brands fa-salesforce icon-grid menu-icon"></i>
               <span class="menu-title">Manage OnSale Products</span>
             </a>
-          </li> --}}
+          </li>
 
           <li class="nav-item {{ request()->is('*admin/coupons*') ? 'active' : '' }}">
             <a class="nav-link" href="{{route('admin.coupons')}}">

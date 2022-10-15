@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Heer-Sare</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico')}}">
+	<title>Mancay</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/dashboard-logo.jpg')}}" style="border-radius: 50%;">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css')}}">
@@ -52,9 +52,6 @@
                                 <a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="submenu curency" >
                                     <li class="menu-item" >
-                                        <a title="Shilling (SH)" href="#">Shilling (SH)</a>
-                                    </li>
-                                    <li class="menu-item" >
                                         <a title="Taka (TK)" href="#">Taka (TK)</a>
                                     </li>
                                     <li class="menu-item" >
@@ -99,7 +96,7 @@
                 <div class="mid-section main-info-area">
 
                     <div class="wrap-logo-top left-section">
-                        <a href="/" class="link-to-home"><img src="{{asset('assets/images/log3.jpg')}}" alt="mercado"></a>
+                        <a href="/" class="link-to-home"><img src="{{asset('assets/images/front-logo.png')}}" alt="mercado"></a>
                     </div>
 
                     @livewire('header-search-component')

@@ -21,6 +21,7 @@ use App\Http\Livewire\Admin\AddNewProductComponent;
 use App\Http\Livewire\Admin\AdminAddCouponComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminAddProductAttributeComponent;
+use App\Http\Livewire\Admin\AdminChangePassword;
 use App\Http\Livewire\Admin\AdminContactUsComponent;
 use App\Http\Livewire\Admin\AdminCouponsComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
@@ -28,11 +29,13 @@ use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProduct;
 use App\Http\Livewire\Admin\AdminEditProductAttributeComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
+use App\Http\Livewire\Admin\AdminEditProfile;
 use App\Http\Livewire\Admin\AdminHomeCategoriesComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminProductAttributesComponent;
+use App\Http\Livewire\Admin\AdminProfile;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminSettingsComponent;
 use App\Http\Livewire\ContactComponent;
@@ -97,6 +100,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 // Admin routes
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
+    Route::get('/admin/profile',AdminProfile::class)->name('admin.profile');
+    Route::get('/admin/profile/edit',AdminEditProfile::class)->name('admin.editprofile');
+    Route::get('/admin/change-password',AdminChangePassword::class)->name('admin.changepassword');
+
     // admin show dashboard
    Route::get('/admin/dashboard',AdminComponent::class)->name('admin.dashboard');
 //    admin categories
